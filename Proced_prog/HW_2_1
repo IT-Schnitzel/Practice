@@ -16,12 +16,11 @@ int main()
     cin >> r1;
     cout << "Введите r" << endl;
     cin >> r2;
-    cout << "Введите l" << endl;
-    cin >> l;
-
+    
+    l = sqrt(h * h + (r1 - r2) * (r1 - r2));
     v = 1 / 3 * h * M_PI * (r1 * r1 + r1 * r2 + r2 * r2);
     s = M_PI * (r1 * r1 + (r1 + r2) * l + r2 * r2);
-    
+
     cout << "Объем конуса равен ";
     cout << v << endl;
     cout << "Полная площадь поверхности конуса равна ";
