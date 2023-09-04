@@ -1,0 +1,45 @@
+#define _USE_MATH_DEFINES
+
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    double a,x;
+
+    cout << "Введите a" << endl;
+    cin >> a;
+    cout << "Введите x" << endl;
+    cin >> x;
+
+    if (x > -1 && x < 1)
+    {
+        if (x == 0)
+        {
+            cout << "Ошибка" << endl;
+        }
+        else
+        {
+            cout << a * log(abs(x));
+        }
+    }
+    else
+    {
+        if (a < x * x)
+        {
+            cout << "Ошибка" << endl;
+        }
+        else
+        {
+            cout << sqrt(a - x * x);
+        }
+    }
+    
+
+	return 0;
+}
+
