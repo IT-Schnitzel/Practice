@@ -18,7 +18,7 @@ int main()
     cout << "Введите p" << endl;
     cin >> p;
     
-    if (p == 0 || n == 0)
+    if (p <= 0 || n <= 0)
     {
         cout << "Ошибка" << endl;
     }
