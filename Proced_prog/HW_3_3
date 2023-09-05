@@ -1,0 +1,20 @@
+#define _USE_MATH_DEFINES
+
+#include <iostream>
+#include <fstream>
+// #include <math.h>
+
+using namespace std;
+
+int main()
+{
+    char s[1000];
+    setlocale(LC_ALL, "Russian");
+    ofstream File("D:/HW.txt");
+    File << "Hello world";
+    File.close();
+    ifstream fin("D:/HW.txt");
+    fin.getline(s, 10000);
+    fin.close();
+    cout << s << endl;
+}
