@@ -1,0 +1,41 @@
+#define _USE_MATH_DEFINES
+
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    double s, m, n, r;
+    bool flag = false;
+    cout << "Введите s" << endl;
+    cin >> s;
+    cout << "Введите m" << endl;
+    cin >> m;
+    cout << "Введите n" << endl;
+    cin >> n;
+    r = 0.001;
+    for (double i = 0; i < 100000; i++)
+    {
+        if (m <= (s * r * pow(1 + r, n)) / (12 * (pow(1 + r, n) - 1)))
+        {
+            flag = true;
+            cout << "Ссуда S была выдана под ";
+            cout << r;
+            cout << " процентов" << endl;
+            break;
+        }
+        r += i / 1000;
+        //cout << i << endl;
+    }
+    if (!flag)
+    {
+        cout << "Му уточки, все плохо" << endl;
+    }
+
+
+    return 0;
+}
