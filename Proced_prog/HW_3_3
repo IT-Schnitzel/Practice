@@ -9,11 +9,17 @@ using namespace std;
 int main()
 {
     char s[1000];
+    //string line;
     setlocale(LC_ALL, "Russian");
     ofstream File("D:/HW.txt");
     File << "Hello world";
     File.close();
     ifstream fin("D:/HW.txt");
+    //while (getline(fin, line))
+	//{
+	//	cout << line << endl;
+	//}
+	//fin.close();
     fin.getline(s, 10000);
     fin.close();
     cout << s << endl;
