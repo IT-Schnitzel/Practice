@@ -17,18 +17,18 @@ int main()
     cin >> m;
     cout << "Введите n" << endl;
     cin >> n;
-    r = 0.001;
+    r = 0.00000001;
     for (double i = 0; i < 100000; i++)
     {
         if (m <= (s * r * pow(1 + r, n)) / (12 * (pow(1 + r, n) - 1)))
         {
             flag = true;
             cout << "Ссуда S была выдана под ";
-            cout << r;
+            cout << r*100;
             cout << " процентов" << endl;
             break;
         }
-        r += i / 1000;
+        r += i / 1000000000;
         //cout << i << endl;
     }
     if (!flag)
@@ -36,6 +36,6 @@ int main()
         cout << "Му уточки, все плохо" << endl;
     }
 
-
     return 0;
 }
+
