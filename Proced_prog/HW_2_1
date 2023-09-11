@@ -8,7 +8,7 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    double h, r1, r2, v, s, l;
+    double h, r1, r2, v, s, l, l1;
 
     cout << "Введите h" << endl;
     cin >> h;
@@ -16,8 +16,14 @@ int main()
     cin >> r1;
     cout << "Введите r" << endl;
     cin >> r2;
-    
+    cout << "Введите l" << endl;
+    cin >> l1;
+
     l = sqrt(h * h + (r1 - r2) * (r1 - r2));
+    if (l < 0 || sqrt(l) != l1 || h < 0 || r1 < 0 || r2 < 0 || l1 < 0 || l < 0) {
+        cout << "Ошибка, подобного конуса не существует" << endl;
+        return 0;
+    }
     v = (M_PI * h * (r1 * r1 + r1 * r2 + r2 * r2)) / 3;
     s = M_PI * (r1 * r1 + (r1 + r2) * l + r2 * r2);
 
@@ -26,6 +32,7 @@ int main()
     cout << "Полная площадь поверхности конуса равна ";
     cout << s << endl;
 
-	return 0;
+    return 0;
 }
+
 
