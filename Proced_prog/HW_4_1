@@ -1,0 +1,43 @@
+#define _USE_MATH_DEFINES
+
+#include <iostream>
+#include <fstream>
+#include <string>
+// #include <math.h>
+
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	string strin;
+	cout << "Введите десять цифр через пробел" << endl;
+	getline(cin, strin);
+	//cout << strin << endl;
+	ofstream File("D:/HW.txt");
+	File << strin;
+	File.close();
+	ifstream file("D:/HW.txt");
+	int b;
+	int counter = 0;
+	int fl = 0;
+	do
+	{
+		if (file >> b)
+		{
+			//cout << b << " ";
+			counter += b;
+			fl++;
+		}
+		else
+		{
+			file.clear();
+			file.ignore(1, ' ');
+		}
+	} while (!file.eof());
+	cout << counter << endl;
+	file.close();
+	if (fl == 0) {
+		cout << "В файле не было цифр" << endl;
+	}
+}
