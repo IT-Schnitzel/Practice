@@ -1,0 +1,68 @@
+#define _USE_MATH_DEFINES
+
+#include <iostream>
+#include <fstream>
+// #include <math.h>
+
+using namespace std;
+
+void rect()
+{
+    double a, b;
+    cout << "Введите длину прямоугольника" << endl;
+    cin >> a;
+    cout << "Введите ширину прямоугольника" << endl;
+    cin >> b;
+    cout << a * b << endl;
+
+}
+
+void triang()
+{
+    double l, h;
+    cout << "Введите длину основания треугольника" << endl;
+    cin >> l;
+    cout << "Введите высоту треугольника" << endl;
+    cin >> h;
+    cout << l * h / 2;
+}
+
+void circl()
+{
+    double r;
+    cout << "Введите радиус круга" << endl;
+    cin >> r;
+    cout << M_PI * r * r;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    int a;
+    cout << "Введите 1 если хотите найти площадь прямоугольника" << endl;
+    cout << "Введите 2 если хотите найти площадь треугольника" << endl;
+    cout << "Введите 3 если хотите найти площадь круга" << endl;
+    cin >> a;
+    if (a == 1)
+    {
+        rect();
+    }
+    else
+    {
+        if (a == 2)
+        {
+            triang();
+        }
+        else
+        {
+            if (a == 3)
+            {
+                circl();
+            }
+            else
+            {
+                cout << "Вы уточка, прочитайте еще раз условия" << endl;
+            }
+        }
+    }
+}
