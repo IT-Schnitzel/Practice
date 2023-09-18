@@ -1,0 +1,65 @@
+#define _USE_MATH_DEFINES
+
+#include <iostream>
+#include <fstream>
+#include <math.h>
+#include <cmath>
+#include <string>
+#include <windows.h>
+#include <stdio.h>
+#include <set>
+#include <map>
+#include <vector>
+// #include <math.h>
+
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	map<char, int> c;
+	c['I'] = 1;
+	c['V'] = 5;
+	c['X'] = 10;
+	c['L'] = 50;
+	c['C'] = 100;
+	c['D'] = 500;
+	c['M'] = 1000;
+	string s;
+	int d = 0;
+	int	k = 0;
+	while (true) {
+		cout << "Введите число: "s << endl;
+		cin >> s;
+		int i = 0;
+		boolean flag = false;
+		while (i < s.size()) {
+			k += c[s[i]];
+			if (c[s[i]] == 0)
+			{
+				cout << "Ошибка ввода данных" << endl;
+				flag = true;
+				break;
+			}
+			while (i < s.size() && c[s[i + 1]] == c[s[i]]) {
+				k += c[s[i]];
+				i++;
+			}
+			if (i < s.size() && c[s[i + 1]] > c[s[i]]) {
+				d -= k;
+			}
+			else {
+				d += k;
+			}
+			cout << k << endl;
+			cout << d << endl;
+			i++;
+			k = 0;
+		}
+		if (!flag)
+		{
+			cout << d << endl;
+		}
+		d = 0;
+	}
+}
