@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    double s,p,n,r;
+    double s, p, n, r;
 
     cout << "Введите s" << endl;
     cin >> s;
@@ -17,17 +17,25 @@ int main()
     cin >> n;
     cout << "Введите p" << endl;
     cin >> p;
-    
-    if (p == 0 || n <= 0)
+
+    if (p == 0 || n <= 0 || s <= 0)
     {
         cout << "Ошибка" << endl;
     }
     else
     {
-        r = p / 100;
-        cout << (s * r * pow(1 + r, n)) / (12 * (pow(1 + r, n) - 1));
+        if (p > 0)
+        {
+            r = p / 100;
+            cout << (s * r * pow(1 + r, n)) / (12 * (pow(1 + r, n) - 1));
+        }
+        else
+        {
+            r = p / 100;
+            cout << -(s * r * pow(1 + r, n)) / (12 * (pow(1 + r, n) - 1));
+        }
+        
     }
-    
-	return 0;
-}
 
+    return 0;
+}
