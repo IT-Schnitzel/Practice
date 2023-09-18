@@ -22,10 +22,23 @@ double nedorand(int m, int b, int c, int rand, int i)
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    int m, b, c;
+    int m, b, c, n;
     cin >> m ;
     cin >> b;
     cin >> c;
-    cout << nedorand(m, b, c, 0, 999) << endl;
-    return 0;
+    cout << "Введите сколько чисел вы хотите получить (не более 999)" << endl;
+    cin >> n;
+    if (n > 999)
+    {
+        cout << "Не будем уточками, число больше 999" << endl;
+    }
+    else
+    {
+        for (int i = 0; i < n; i ++)
+        {
+            cout << nedorand(m, b, c, 0, i) << endl;
+        }
+
+    }
+    
 }
