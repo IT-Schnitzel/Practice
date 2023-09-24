@@ -1,0 +1,122 @@
+#define _USE_MATH_DEFINES
+
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    double matr_1[3][4]
+    {
+        {5,2,0,10},
+        {3,5,2,5},
+        {20,0,0,0}
+    };
+    double matr_2[4][2]
+    {
+        {1.20,0.50},
+        {2.80,0.40},
+        {5.00,1.00},
+        {2.00,1.50}
+    };
+    double matr[3][2];
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 2; j++)
+        {
+            matr[i][j] = matr_1[i][0] * matr_2[0][j] + matr_1[i][1] * matr_2[1][j] + matr_1[i][2] * matr_2[2][j] + matr_1[i][3] * matr_2[3][j];
+        }
+    }
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 2; j++)
+        {
+            cout << (matr[i][j]);
+            cout << " ";
+        }
+        cout << "" << endl;
+    }
+    cout << " " << endl;
+    cout << matr[1][1] << endl;
+    cout << matr[1][0] << endl;
+    cout << "Больше всего денег получил продавец ";
+    if (matr[0][0] > matr[1][0] && matr[0][0] > matr[2][0])
+    {
+        cout << 1 << endl;
+    }
+    else
+    {
+        if (matr[1][0] > matr[0][0] && matr[1][0] > matr[2][0])
+        {
+            cout << 2 << endl;
+        }
+        else
+        {
+            cout << 3 << endl;
+        }
+    }
+    
+
+    cout << "Меньше всего денег получил продавец ";
+    if (matr[0][0] < matr[1][0] && matr[0][0] < matr[2][0])
+    {
+        cout << 1 << endl;
+    }
+    else
+    {
+        if (matr[1][0] < matr[0][0] && matr[1][0] < matr[2][0])
+        {
+            cout << 2 << endl;
+        }
+        else
+        {
+            cout << 3 << endl;
+        }
+    }
+
+    cout << "Больше всего комиссионных получил продавец ";
+    if (matr[0][1] > matr[1][1] && matr[0][1] > matr[2][1])
+    {
+        cout << 1 << endl;
+    }
+    else
+    {
+        if (matr[1][1] > matr[0][1] && matr[1][1] > matr[2][1])
+        {
+            cout << 2 << endl;
+        }
+        else
+        {
+            cout << 3 << endl;
+        }
+    }
+
+
+    cout << "Меньше всего комиссионных получил продавец ";
+    if (matr[1][0] < matr[1][1] && matr[1][0] < matr[1][2])
+    {
+        cout << 1 << endl;
+    }
+    else
+    {
+        if (matr[1][1] < matr[0][1] && matr[1][1] < matr[2][1])
+        {
+            cout << 2 << endl;
+        }
+        else
+        {
+            cout << 3 << endl;
+        }
+    }
+
+    cout << "общая сумма денег, вырученных за проданные товары равна ";
+    cout << matr[0][0] + matr[0][1] + matr[0][2] << endl;
+
+    cout << "всего продавцы получили комиссионных ";
+    cout << matr[1][0] + matr[1][1] + matr[1][2] << endl;
+
+    cout << "общая сумма денег, прошедших через руки продавцов ";
+    cout << matr[1][0] + matr[1][1] + matr[1][2] + matr[0][0] + matr[0][1] + matr[0][2] << endl;
+}
