@@ -57,7 +57,7 @@ int main()
             cout << 3 << endl;
         }
     }
-    
+
 
     cout << "Меньше всего денег получил продавец ";
     if (matr[0][0] < matr[1][0] && matr[0][0] < matr[2][0])
@@ -112,11 +112,11 @@ int main()
     }
 
     cout << "общая сумма денег, вырученных за проданные товары равна ";
-    cout << matr[0][0] + matr[0][1] + matr[0][2] << endl;
+    cout << matr[0][0] + matr[1][0] + matr[2][0] << endl;
 
     cout << "всего продавцы получили комиссионных ";
-    cout << matr[1][0] + matr[1][1] + matr[1][2] << endl;
+    cout << matr[0][1] + matr[1][1] + matr[2][1] << endl;
 
     cout << "общая сумма денег, прошедших через руки продавцов ";
-    cout << matr[1][0] + matr[1][1] + matr[1][2] + matr[0][0] + matr[0][1] + matr[0][2] << endl;
+    cout << matr[0][0] + matr[1][0] + matr[2][0] + matr[0][1] + matr[1][1] + matr[2][1] << endl;
 }
