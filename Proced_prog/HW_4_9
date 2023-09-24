@@ -1,0 +1,70 @@
+#define _USE_MATH_DEFINES
+
+#include <math.h>
+#include <cmath>
+#include <fstream>
+#include <string>
+#include <windows.h>
+#include <stdio.h>
+#include <set>
+#include <map>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+	map <char, int> dightswap;
+	int i = 0;
+	for (char c = '0'; c <= '9'; ++c, ++i) {
+		dightswap[c] = i;
+	}
+	for (char c = 'A'; c <= 'Z'; ++c, ++i) {
+		dightswap[c] = i;
+	}
+	int Sys_1;
+	cout << "Введите систему счиления числа: "s;
+	cin >> Sys_1;
+	int Sys_2;
+	cout << "Введите систему в которую нужно перевести число: "s;
+	cin >> Sys_2;
+	string number;
+	cout << "Введите число: "s;
+	cin >> number;
+	int sum_1 = 0;
+	int k = 1;
+	for (char a : number) {
+		sum_1 += dightswap[a] * pow(Sys_1, number.size() - k);
+		++k;
+	}
+	string sum_2 = "";
+	vector <int> symbol;
+	if (Sys_2 != 0)
+	{
+		while (sum_1 >= Sys_2) {
+			symbol.push_back(sum_1 % Sys_2);
+			sum_1 = sum_1 / Sys_2;
+		}
+		symbol.push_back(sum_1);
+		for (int i = symbol.size() - 1; i >= 0; --i) {
+			if (Sys_2 > 10 && symbol[i] > 10) {
+				for (char j = 'A'; j <= 'Z'; ++j) {
+					if (dightswap[j] == symbol[i]) {
+						cout << j << ""s;
+						break;
+					}
+				}
+			}
+			else {
+				cout << symbol[i] << ""s;
+			}
+		}
+	}
+	else
+	{
+		cout << "все плохо" << endl;
+	}
+	cout << endl;
+}
