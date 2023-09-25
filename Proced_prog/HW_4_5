@@ -6,63 +6,41 @@
 
 using namespace std;
 
-void print_sine(int width, int height, double amplitude, double frequency);
-
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    int width = 120;
-    int height = 30;
-    double amplitude = 1;
-    double frequency = 3;
+    string plot[29][161] = { "-" };
+    int centery = 14;
+    int centerx = 80;
+    for (int i = 0; i < 29; i++) {
+        for (int j = 0; j < 161; j++) {
+            plot[i][j] = " ";
+        }
+    }
 
-    print_sine(width, height, amplitude, frequency);       
-}
+    for (int i = 0; i < 29; i++) {
+        plot[i][centerx] = "|";
+    }
 
-void print_sine(int width, int height, double amplitude, double frequency)
-{
-    for (int y = height - 1; y >= 0; y--)
-    {
-        for (int x = 0; x < width + 1; x++)
-        {
-            double x_value = static_cast<double>(x - width / 2) / (width / 2);
-            double angle = x_value * M_PI * frequency;
-            double value = amplitude * sin(angle);
-            double plot_y = static_cast<int>((value / 2 + 1.0) / 2.0 * (height + 1));
-            if (y == height / 2)
-            {
-                if (x == width / 2)
-                {
-                    cout << "+";
-                }
-                else if (x == width)
-                {
-                    cout << ">";
-                }
-                else
-                {
-                    cout << "-";
-                }
-            }
-            else if (x == width / 2)
-            {
-                if (y == height - 1)
-                {
-                    cout << "^";
-                }
-                else
-                {
-                    cout << "|";
-                }
-            }
-            else if (y == plot_y)
-            {
-                cout << "*";
-            }
-            else
-            {
-                cout << " ";
-            }
+    for (int i = 0; i < 161; i++) {
+        plot[centery][i] = "-";
+    }
+
+    plot[centery][centerx] = "+";
+
+    int y = 0;
+    int scale = 10;
+    int posx = 0, posy = 0;
+    for (float x = -8; x < 8; x += 0.1) {
+        y = round(sin(x) * (scale + 4));
+        posx = centerx + x * scale;
+        posy = centery + y;
+        plot[posy][posx] = "*";
+    }
+
+    for (int i = 0; i < 29; i++) {
+        for (int j = 0; j < 161; j++) {
+            cout << plot[i][j];
         }
         cout << endl;
     }
