@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <fstream>
-// #include <math.h>
+#include <math.h>
 
 using namespace std;
 
@@ -19,12 +19,15 @@ void rect()
 
 void triang()
 {
-    double l, h;
-    cout << "Введите длину основания треугольника" << endl;
-    cin >> l;
+    double a, b, c;
+    cout << "Введите длину стороны основания треугольника" << endl;
+    cin >> a;
     cout << "Введите высоту треугольника" << endl;
-    cin >> h;
-    cout << l * h / 2;
+    cin >> b;
+    cout << "Введите длину стороны основания треугольника" << endl;
+    cin >> c;
+    double p = (a + b + c) / 2;
+    cout << sqrt(p*(p-a)*(p-b)*(p-c));
 }
 
 void circl()
