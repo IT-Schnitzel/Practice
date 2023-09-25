@@ -5,7 +5,7 @@
 #include <string>
 // #include <math.h>
 
-int sign(int i)
+int sign(double i)
 {
 	if (i > 0)
 	{
@@ -21,9 +21,9 @@ using namespace std;
 
 int main()
 {
-	
-	setlocale(LC_ALL, "Russian"); 
-	int a;
+
+	setlocale(LC_ALL, "Russian");
+	double a;
 	cout << "Введите число" << endl;
 	cin >> a;
 	cout << sign(a);
