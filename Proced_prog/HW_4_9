@@ -15,7 +15,7 @@ using namespace std;
 
 int main()
 {
-    setlocale(LC_ALL, "Russian");
+	setlocale(LC_ALL, "Russian");
 	map <char, int> dightswap;
 	int i = 0;
 	for (char c = '0'; c <= '9'; ++c, ++i) {
@@ -35,36 +35,46 @@ int main()
 	cin >> number;
 	int sum_1 = 0;
 	int k = 1;
+	int flag = 0;
 	for (char a : number) {
 		sum_1 += dightswap[a] * pow(Sys_1, number.size() - k);
+		if (dightswap[a] >= Sys_1)
+		{
+			cout << "Все плохо" << endl;
+			flag = 1;
+		}
 		++k;
 	}
-	string sum_2 = "";
-	vector <int> symbol;
-	if (Sys_2 != 0)
+	if (flag == 0)
 	{
-		while (sum_1 >= Sys_2) {
-			symbol.push_back(sum_1 % Sys_2);
-			sum_1 = sum_1 / Sys_2;
-		}
-		symbol.push_back(sum_1);
-		for (int i = symbol.size() - 1; i >= 0; --i) {
-			if (Sys_2 > 10 && symbol[i] > 10) {
-				for (char j = 'A'; j <= 'Z'; ++j) {
-					if (dightswap[j] == symbol[i]) {
-						cout << j << ""s;
-						break;
+		string sum_2 = "";
+		vector <int> symbol;
+		if (Sys_2 != 0)
+		{
+			while (sum_1 >= Sys_2) {
+				symbol.push_back(sum_1 % Sys_2);
+				sum_1 = sum_1 / Sys_2;
+			}
+			symbol.push_back(sum_1);
+			for (int i = symbol.size() - 1; i >= 0; --i) {
+				if (Sys_2 > 10 && symbol[i] > 10) {
+					for (char j = 'A'; j <= 'Z'; ++j) {
+						if (dightswap[j] == symbol[i]) {
+							cout << j << ""s;
+							break;
+						}
 					}
 				}
-			}
-			else {
-				cout << symbol[i] << ""s;
+				else {
+					cout << symbol[i] << ""s;
+				}
 			}
 		}
+		else
+		{
+			cout << "все плохо" << endl;
+		}
+		cout << endl;
 	}
-	else
-	{
-		cout << "все плохо" << endl;
-	}
-	cout << endl;
+	
 }
