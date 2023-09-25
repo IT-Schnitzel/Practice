@@ -27,7 +27,11 @@ void triang()
     cout << "Введите длину стороны основания треугольника" << endl;
     cin >> c;
     double p = (a + b + c) / 2;
-    cout << sqrt(p*(p-a)*(p-b)*(p-c));
+    if (a >= b + c || b >= a + c || c >= a + b)
+    {
+        cout << "Неравенство треугольника!" << endl;
+    }
+    cout << sqrt(p * (p - a) * (p - b) * (p - c));
 }
 
 void circl()
