@@ -3,41 +3,67 @@
 #include <iostream>
 #include <fstream>
 #include <math.h>
-#include <cmath>
-#include <string>
-#include <windows.h>
-#include <stdio.h>
-#include <set>
-#include <map>
-#include <vector>
-// #include <math.h>
 
 using namespace std;
+
+void print_sine(int width, int height, double amplitude, double frequency);
 
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    for (int i = 0; i < 12; i++)
+    int width = 120;
+    int height = 30;
+    double amplitude = 1;
+    double frequency = 3;
+
+    print_sine(width, height, amplitude, frequency);       
+}
+
+void print_sine(int width, int height, double amplitude, double frequency)
+{
+    for (int y = height - 1; y >= 0; y--)
     {
-        if (i == 0)
+        for (int x = 0; x < width + 1; x++)
         {
-            cout << "               ^" << endl;
+            double x_value = static_cast<double>(x - width / 2) / (width / 2);
+            double angle = x_value * M_PI * frequency;
+            double value = amplitude * sin(angle);
+            double plot_y = static_cast<int>((value / 2 + 1.0) / 2.0 * (height + 1));
+            if (y == height / 2)
+            {
+                if (x == width / 2)
+                {
+                    cout << "+";
+                }
+                else if (x == width)
+                {
+                    cout << ">";
+                }
+                else
+                {
+                    cout << "-";
+                }
+            }
+            else if (x == width / 2)
+            {
+                if (y == height - 1)
+                {
+                    cout << "^";
+                }
+                else
+                {
+                    cout << "|";
+                }
+            }
+            else if (y == plot_y)
+            {
+                cout << "*";
+            }
+            else
+            {
+                cout << " ";
+            }
         }
-        if ((i > 0 && i < 5) || i > 7)
-        {
-            cout << "               |" << endl;
-        }
-        if (i == 6)
-        {
-            cout << " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *->" << endl;
-        }
-        if (i == 5)
-        {
-            cout << "  *   *   *   *|  *   *   *   *   *   *   *   *   *   *   *   *   *   *" << endl;
-        }
-        if (i == 7)
-        {
-            cout << "*   *   *   *  |*   *   *   *   *   *   *   *   *   *   *   *   *   *  " << endl;
-        }
+        cout << endl;
     }
 }
