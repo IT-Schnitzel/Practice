@@ -1,0 +1,46 @@
+#include "iostream"
+
+using namespace std;
+
+
+int gcd_div(int a, int b) {
+	if (b == 0)
+		return a;
+	else
+		return gcd_div(b, a % b);
+}
+
+int gcd_subst(int a, int b) {
+	if (b == 0)
+		return a;
+	else
+		if (a > b)
+		{
+			return gcd_subst(b, a - b);
+		}
+		else
+		{
+			return gcd_subst(a, b - a);
+		}
+		
+}
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	string c;
+	cout << "Введите 1 если хотете реализацию алгоритма Евклида делением и 2 если вычитанием" << endl;
+	cin >> c;
+	int a,b;
+	cout << "Введите два числа, для которых необходимо найт НОД" << endl;
+	cin >> a;
+	cin >> b;
+	if (c == "1")
+	{
+		cout << gcd_div(a, b);
+	}
+	else
+	{
+		cout << gcd_subst(a, b);
+	}
+}
