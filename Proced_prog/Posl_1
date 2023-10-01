@@ -1,0 +1,54 @@
+#include "iostream"
+#include <fstream>
+#include <string>
+#include <vector>
+#include <set>
+#include <math.h>
+
+using namespace std;
+
+int factorial(int i)
+{
+	if (i > 1)
+	{
+		return i * factorial(i - 1);
+	}
+	else
+	{
+		return i;
+	}
+}
+
+double summa(int a, int b)
+{
+	double summ = 0;
+	for (int i = 0; i < a; i++)
+	{
+		summ += b + i;
+	}
+	return sqrt(summ);
+}
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	int n;
+	cout << "Введите число" << endl;
+	cin >> n;
+	double result = 0.0;
+	//cout << factorial(21) << endl;
+	int numb = 1;
+	int first = 1;
+	for (double i = n; i > 0; i--)
+	{
+		result += factorial(i) / summa(numb, first);
+		first += numb;
+		numb += 1;
+		//cout << result << endl;
+		//cout << "DDDDDDDd" << endl;
+		//cout << numb << endl;
+		//cout << summa(numb, first) << endl;
+		//cout << " " << endl;
+	}
+	cout << result << endl;
+}
