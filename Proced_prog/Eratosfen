@@ -1,0 +1,40 @@
+#include "iostream"
+
+using namespace std;
+
+bool is_prime(int a)
+{
+	bool prime = false;
+	if (a > 1 && (a % 2 != 0 || a == 2) && (a % 3 != 0 || a == 3))
+	{
+		prime = true;
+	}
+	int i = 5;
+	int d = 2;
+	while (prime && i * i < a)
+	{
+		prime = a % i != 0;
+		i += d;
+		d = 6 - d;
+	}
+	return prime;
+}
+
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	int a;
+	cout << "Введите ограничение действия решета Эратосфена" << endl;
+	cin >> a;
+	int b = 1;
+	while (a > b)
+	{
+		if (is_prime(b))
+		{
+			cout << b << endl;
+		}
+		b += 1;
+
+	}
+}
