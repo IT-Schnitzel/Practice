@@ -1,0 +1,163 @@
+#include "iostream"
+#include <fstream>
+#include <string>
+#include <vector>
+#include <set>
+
+
+using namespace std;
+
+
+bool is_prime(int a)
+{
+	bool prime = false;
+	if (a > 1 && (a % 2 != 0 || a == 2) && (a % 3 != 0 || a == 3))
+	{
+		prime = true;
+	}
+	int i = 5;
+	int d = 2;
+	while (prime && i * i < a)
+	{
+		prime = a % i != 0;
+		i += d;
+		d = 6 - d;
+	}
+	return prime;
+}
+
+int gcd_div(int a, int b) {
+	if (b == 0)
+		return a;
+	else
+		return gcd_div(b, a % b);
+}
+
+
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	string line;
+	multiset<char> al;
+	ofstream File("D:/HW_2.txt");
+	string a;
+	cout << "Введите фразу" << endl;
+	getline(cin, a);
+	File << a;
+	File.close();
+    //while (getline(fin, line))
+    //{
+    //    for (int i = 0; i < line.length(); i++)
+    //    {
+    //        if (line[i] != ' ' )
+    //        {
+    //            al.insert((int)line[i]);
+	//			cout << (int)line[i] << endl;
+    //        }
+    //    }
+    //}
+    //fin.close();
+	string r = "";
+	int counter = 0;
+	int first = 0;
+	long multipl = 1;
+	ofstream finn("D:/HW_3.txt");
+	for (int j = 0; j < a.length(); j++)
+	{
+		if (a[j] != ' ')
+		{
+			r = r + a[j];
+			if (j == a.length() - 1)
+			{
+				//cout << r << endl;
+				first = gcd_div(stoi(r), first);
+				multipl *= stoi(r);
+				if (is_prime(stoi(r)))
+				{
+					finn << r << " ";
+				}
+				//cout << "Aaaaaaaaaaaa" << endl;
+				r = "";
+			}
+			//cout << r << endl;
+		}
+		else
+		{
+			
+			cout << r << endl;
+			counter += 1;
+			if (counter == 1)
+			{
+				first = stoi(r);
+			}
+			else
+			{
+				first = gcd_div(stoi(r), first);
+			}
+			multipl *= stoi(r);
+			if (is_prime(stoi(r)))
+			{
+				finn << r << " ";
+			}
+			r = "";
+		}
+		//cout << r << endl;
+	}
+	cout << multipl << endl;
+	cout << first << endl;
+
+	string s;
+	cout << "Введите 1 если хотете посмотреть первый файл, и 2 если второй" << endl;
+	cin >> s;
+	if (s == "1")
+	{
+		string r = "";
+		int counter = 0;
+		for (int j = 0; j < a.length(); j++)
+		{
+			if (a[j] != ' ')
+			{
+				r = r + a[j];
+				if (j == a.length() - 1)
+				{
+					cout << r << " ";
+				}
+			}
+			else
+			{
+				cout << r << " ";
+				r = "";
+			}
+		}
+	}
+	else
+	{
+		string r = "";
+		int counter = 0;
+		for (int j = 0; j < a.length(); j++)
+		{
+			if (a[j] != ' ')
+			{
+				r = r + a[j];
+				if (j == a.length() - 1)
+				{
+					if (is_prime(stoi(r)))
+					{
+						cout << r << " ";
+					}
+				}
+			}
+			else
+			{
+				if (is_prime(stoi(r)))
+				{
+					cout << r << " ";
+				}
+				r = "";
+			}
+		}
+	}
+	
+}
+
