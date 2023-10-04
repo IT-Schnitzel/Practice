@@ -1,0 +1,39 @@
+#include "iostream"
+
+using namespace std;
+
+
+
+int main()
+{
+    setlocale(LC_ALL, "Rus");
+    int a;
+    cin >> a;
+    if (a < 3 || a == 5)
+    {
+        cout << 0 << endl;
+        cout << 0 << endl;
+    }
+    else
+    {
+        int num3 = a / 3;
+        if (a % 3 == 0)
+        {
+            cout << num3 << endl;
+            cout << 0 << endl;
+        }
+        else
+        {
+            if (a % 3 == 1)
+            {
+                cout << num3 - 1 << endl;
+                cout << 1 << endl;
+            }
+            else
+            {
+                cout << num3 - 2 << endl;
+                cout << 2 << endl;
+            }
+        }
+    }
+}
