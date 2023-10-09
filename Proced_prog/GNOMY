@@ -1,0 +1,52 @@
+#include "iostream"
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int n;
+
+void Gnome_sort(int i, int j, int* mas) {
+	while (i < n)
+	{
+		if (mas[i - 1] <= mas[i] || i == 0) 
+		{ 
+			i = j; 
+			j++; 
+		}
+		else
+		{
+			int t = mas[i];
+			mas[i] = mas[i - 1]; 
+			mas[i - 1] = t;
+			i--;
+		}
+	}
+	cout << "Отсортированный массив : ";
+	for (i = 0; i < n; i++) 
+		cout << mas[i] << " ";
+}
+
+
+using namespace std;
+
+
+int main()
+{
+    setlocale(LC_ALL, "Rus");
+	cout << "Демонстрация алгоритма 'Гномья сортировка'" << endl;
+	int m, k;
+	cout << "Размер массива  ";
+	cin >> n;
+	int* a = new int[n];
+	for (k = 0; k < n; k++) 
+	{
+		//cout << k + 1 << endl;
+		cin >> a[k];
+	}
+	k = 1; m = 2;
+	Gnome_sort(k, m, a);
+	delete[]a;
+	cout << endl;
+	system("pause");
+}
