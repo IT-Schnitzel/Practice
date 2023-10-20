@@ -11,7 +11,7 @@ bool is_prime(int a)
 	}
 	int i = 5;
 	int d = 2;
-	while (prime && i * i < a)
+	while (prime && i * i <= a)
 	{
 		prime = a % i != 0;
 		i += d;
