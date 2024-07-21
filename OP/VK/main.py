@@ -17,8 +17,8 @@ from tqdm import tqdm
 name_days_week = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота"]
 comands_days_week = ["бот понедельник", "бот вторник", "бот среда", "бот четверг", "бот пятница", "бот суббота"]
 
-VK_TOKEN = 'vk1.a.CJ8t31ypLFkPXMOAHsuzfKNv9qZbXjfWM9RGL5SXP5RXm3CYj4pBiEjeWXp4td_Mmm8YKtRihfZMkEO3Gdpa2pjsFe_EizNH58FnSmwjRe3kR2yyXl88o2xUBZgWrdNtu5THjC2fQvnHnvmbmSqdMVIel06_pfDOjrymADlpI2bmedAsKglScqMDhwYWo2rYdFcbGtCS3IfvxsuxNFFE9g'
-API_WEATHER = '3c86bf4df5cdc972b61d2201c3988a81'
+VK_TOKEN = ""
+API_WEATHER = ""
 
 def getst_index(info):
     patt = re.compile(f'09:00:00')
